@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Location:</label>
+        <textarea class="form-control" formControlName="city"></textarea>
+      </div>
+      <div class="form-group">
+        <button (click)=getWeather() type="submit" class="btn btn-primary">Get current
+          weather</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="isWeatherReady" class="card-body">
+    <table>
+      <thead>
+      <tr>
+        <th>Location</th>
+        <th>{{weather.location}}</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Temperature</td>
+        <td>{{weather.temp}} °C</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Humidity</td>
+        <td>{{weather.humidity}} %</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Wind</td>
+        <td>{{weather.wind}} m/s</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>Pressure</td>
+        <td>{{weather.pressure}} hPa</td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

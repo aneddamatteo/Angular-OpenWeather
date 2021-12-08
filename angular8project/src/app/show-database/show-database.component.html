@@ -1,0 +1,23 @@
+<div class="card">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Location</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Humidity</th>
+          <th scope="col">Wind</th>
+          <th scope="col">Pressure</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let location of locations" class="card-body">
+        <tr>
+          <th scope="row">{{location._id}}</th>
+          <td>{{location.temp}} °C</td>
+          <td>{{location.humidity}} %</td>
+          <td>{{location.wind}} m/s</td>
+          <td>{{location.pressure}} hPa</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
