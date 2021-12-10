@@ -40,12 +40,19 @@ export class InsertLocationComponent implements OnInit {
       "wind":wind,
       "pressure":pressure
     }
-    this.weatherService.postDataLocation(data).subscribe(
-      data => {
-        this.message = data['message'];
-        this.insertLocationDone = true;
-      }
-    );
+    if(temp < -273 || humidity <0 || humidity > 100 || wind < 0 || pressure <= 0) {
+      this.message = "Parametri con valori incorretti e locazione non aggiornata";
+      this.insertLocationDone = true;
+
+    }
+    else{
+        this.weatherService.postDataLocation(data).subscribe(
+          data => {
+            this.message = data['message'];
+            this.insertLocationDone = true;
+
+          });
+    }
   }
   ngOnInit(): void {
   }

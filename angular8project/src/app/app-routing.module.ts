@@ -5,6 +5,7 @@ import {ShowDatabaseComponent} from "./show-database/show-database.component";
 import {InsertLocationComponent} from "./insert-location/insert-location.component";
 import {UpdateLocationComponent} from "./update-location/update-location.component";
 import {DeleteLocationComponent} from "./delete-location/delete-location.component";
+import {LocationChartsComponent} from "./location-charts/location-charts.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'deleteLocation',
     component: DeleteLocationComponent
+  },
+  {
+    path: 'locationCharts',
+    component: LocationChartsComponent
   }
 ];
 

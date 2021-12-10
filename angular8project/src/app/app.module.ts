@@ -10,6 +10,8 @@ import { ShowDatabaseComponent } from './show-database/show-database.component';
 import { InsertLocationComponent } from './insert-location/insert-location.component';
 import { UpdateLocationComponent } from './update-location/update-location.component';
 import { DeleteLocationComponent } from './delete-location/delete-location.component';
+import { LocationChartsComponent } from './location-charts/location-charts.component';
+import {GoogleChartsModule} from "angular-google-charts";
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { DeleteLocationComponent } from './delete-location/delete-location.compo
     ShowDatabaseComponent,
     InsertLocationComponent,
     UpdateLocationComponent,
-    DeleteLocationComponent
+    DeleteLocationComponent,
+    LocationChartsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleChartsModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

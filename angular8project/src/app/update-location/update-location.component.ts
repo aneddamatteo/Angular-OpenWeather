@@ -47,10 +47,10 @@ export class UpdateLocationComponent implements OnInit {
     this.weatherService.getDbLocation(this.choose).subscribe(
       data => {
         this.updateForm.patchValue({
-          temp: data[0]['temp'],
-          humidity: data[0]['humidity'],
-          wind: data[0]['wind'],
-          pressure: data[0]['pressure']
+          temp: data[0]['temp'][data[0]['temp'].length-1],
+          humidity: data[0]['humidity'][data[0]['humidity'].length-1],
+          wind: data[0]['wind'][data[0]['wind'].length-1],
+          pressure: data[0]['pressure'][data[0]['pressure'].length-1]
         });
         this.updateLocationChoose = true;
         this.updated =false;
