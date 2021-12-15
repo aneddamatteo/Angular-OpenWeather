@@ -6,6 +6,7 @@ import {InsertLocationComponent} from "./insert-location/insert-location.compone
 import {UpdateLocationComponent} from "./update-location/update-location.component";
 import {DeleteLocationComponent} from "./delete-location/delete-location.component";
 import {LocationChartsComponent} from "./location-charts/location-charts.component";
+import {LoginUserComponent} from "./login-user/login-user.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'locationCharts',
     component: LocationChartsComponent
+  },
+  {
+    path: 'login',
+    component: LoginUserComponent
   }
 ];
 

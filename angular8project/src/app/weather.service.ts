@@ -10,25 +10,31 @@ export class WeatherService {
   constructor(private http: HttpClient) {
   }
   getWeather(city: string) {
-    return this.http.get(this.uri + 'weather/' + city);
+    const options = {withCredentials: true};
+    return this.http.get(this.uri + 'weather/' + city,options);
   }
   getDbLocation(city: string){
-    return this.http.get(this.uri + 'dbLocation/'+ city);
+    const options = {withCredentials: true};
+    return this.http.get(this.uri + 'dbLocation/'+ city,options);
   }
   getListDb(){
-    return this.http.get(this.uri + 'storedLocation');
+    const options = {withCredentials: true};
+    return this.http.get(this.uri + 'storedLocation',options);
   }
   postDataLocation(data: object){
-    const options = {headers: {'Content-Type': 'application/json'}};
+    const options = {headers: {'Content-Type': 'application/json'},withCredentials: true};
     return this.http.post(this.uri + 'insertLocation', JSON.stringify(data), options);
   }
   updateLocation(data: object){
-    const options = {headers: {'Content-Type': 'application/json'}};
+    const options = {headers: {'Content-Type': 'application/json'},withCredentials: true};
     return this.http.put(this.uri + 'updateLocation', JSON.stringify(data), options);
   }
-
-  deleteLocation(data){
-    const options = {headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)};
+  deleteLocation(data: object){
+    const options = {headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data),withCredentials: true};
     return this.http.delete(this.uri + 'deleteLocation', options);
+  }
+  postLogIn(data: object){
+    const options = {headers: {'Content-Type': 'application/json' }};
+    return this.http.post(this.uri + 'login', JSON.stringify(data), options);
   }
 }

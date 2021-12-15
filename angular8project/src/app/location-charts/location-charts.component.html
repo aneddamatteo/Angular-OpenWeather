@@ -1,39 +1,41 @@
 <div class="card">
-  <form [formGroup]="chooseForm" novalidate>
-    <div *ngFor="let location of locations" class="form-check">
-      <input class="form-check-input" type="radio" name="choose" id="exampleRadios1" value={{location.location}} formControlName="choose" (change)=chooseLocationWeather()>
-      <label class="form-check-label" for="exampleRadios1">
-        {{ location.location }}
-      </label>
-    </div>
-  </form>
-  <div *ngIf="showCharts" class="card-body">
-    <google-chart #chart
-                  [title]= "lineChart.title"
-                  [type]="lineChart.type"
-                  [data]="lineChart.data"
-                  [columns]="lineChart.columnNames"
-                  [options]="lineChart.options"
-                  [width]="lineChart.width"
-                  [height]="lineChart.height">
-    </google-chart>
-    <google-chart #chart
-                  [title]= "histogramChart.title"
-                  [type]="histogramChart.type"
-                  [data]="histogramChart.data"
-                  [columns]="histogramChart.columnNames"
-                  [options]="histogramChart.options"
-                  [width]="histogramChart.width"
-                  [height]="histogramChart.height">
-    </google-chart>
-    <google-chart #chart
-                  [title]= "windChart.title"
-                  [type]="windChart.type"
-                  [data]="windChart.data"
-                  [columns]="windChart.columnNames"
-                  [options]="windChart.options"
-                  [width]="windChart.width"
-                  [height]="windChart.height">
-    </google-chart>
-  </div>
+     <div class="row">
+        <form [formGroup]="chooseForm" novalidate class="col-1">
+          <div *ngFor="let location of locations" class="form-check">
+            <input class="form-check-input" type="radio" name="choose" id="exampleRadios1" value={{location.location}} formControlName="choose" (change)=chooseLocationWeather()>
+            <label class="form-check-label" for="exampleRadios1">
+              {{ location.location }}
+            </label>
+          </div>
+        </form>
+        <div *ngIf="showCharts" class="col-2">
+          <google-chart #chart
+                        [title]= "lineChart.title"
+                        [type]="lineChart.type"
+                        [data]="lineChart.data"
+                        [columns]="lineChart.columnNames"
+                        [options]="lineChart.options"
+                        [width]="lineChart.width"
+                        [height]="lineChart.height">
+          </google-chart>
+          <google-chart #chart
+                        [title]= "histogramChart.title"
+                        [type]="histogramChart.type"
+                        [data]="histogramChart.data"
+                        [columns]="histogramChart.columnNames"
+                        [options]="histogramChart.options"
+                        [width]="histogramChart.width"
+                        [height]="histogramChart.height">
+          </google-chart>
+          <google-chart #chart
+                        [title]= "windChart.title"
+                        [type]="windChart.type"
+                        [data]="windChart.data"
+                        [columns]="windChart.columnNames"
+                        [options]="windChart.options"
+                        [width]="windChart.width"
+                        [height]="windChart.height">
+          </google-chart>
+        </div>
+     </div>
 </div>

@@ -10,7 +10,7 @@ import {GoogleChartsModule} from "angular-google-charts";
 })
 export class LocationChartsComponent implements OnInit {
 
-  chooseForm;
+  chooseForm: FormGroup;
   @Input() showCharts;
   locations;
   choose;
@@ -44,7 +44,7 @@ export class LocationChartsComponent implements OnInit {
         let pressure= data[0]['pressure'];
         let timestamp = data[0]['timestamp_refresh'];
         this.createLineChart(pressure, timestamp,this.choose);
-        this.createHistogramChart(temp,humidity,this.choose);
+        this.createHistogramChart(temp,humidity,this.choose,timestamp);
         this.createWindChart(wind,timestamp,this.choose);
         this.showCharts = true;
       }
@@ -70,26 +70,30 @@ export class LocationChartsComponent implements OnInit {
         vAxis: {
           title: 'Pressione'
         },
+        is3D:true
       },
       width : 550,
       height : 400,
     }
   }
 
-  createHistogramChart(temp,humidity,city){
-    let data : Array<number> [] = [];
-
+  createHistogramChart(temp,humidity,city,timestamp){
+    let histDate =  new Date(timestamp[timestamp.length-1]);
     this.histogramChart =
       {
         title :'Temperatura e umidità a ' + city,
-        type : 'Histogram',
-        data : [[temp[temp.length-1]],[humidity[humidity.length-1]]],
-        columnNames : ["Valore"],
+        type : "ColumnChart",
+        data :[[histDate.toDateString(),temp[temp.length-1],humidity[humidity.length-1]]],
+        columnNames : ["Tempo","Temperatura", "Umidità"],
         options : {
           hAxis: {
-            ticks: ["Temperatura", "Umidità"]
+            title: 'Timestamp'
           },
-          legend: 'none'
+          vAxis: {
+            title: 'Value'
+          },
+          legend: 'none',
+          is3D:true
         },
         width : 550,
         height : 400,
@@ -108,7 +112,7 @@ export class LocationChartsComponent implements OnInit {
         type : 'BarChart',
         data : data,
         columnNames : ["Tempo","Vento"],
-        options : {},
+        options : { is3D:true},
         width : 550,
         height : 400,
     }

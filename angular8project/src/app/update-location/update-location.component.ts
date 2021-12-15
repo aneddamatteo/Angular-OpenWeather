@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {WeatherService} from "../weather.service";
 
 @Component({
@@ -9,10 +9,10 @@ import {WeatherService} from "../weather.service";
 })
 export class UpdateLocationComponent implements OnInit {
 
-  chooseForm;
+  chooseForm: FormGroup;
   @Input() updateLocationChoose;
   @Input() updated;
-  updateForm;
+  updateForm: FormGroup;
   locations;
   choose;
   message;

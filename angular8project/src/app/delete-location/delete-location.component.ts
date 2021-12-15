@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {WeatherService} from "../weather.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {WeatherService} from "../weather.service";
   styleUrls: ['./delete-location.component.css']
 })
 export class DeleteLocationComponent implements OnInit {
-  chooseForm;
+  chooseForm: FormGroup;
   locations;
   @Input() deleteLocation;
   @Input() eliminate;

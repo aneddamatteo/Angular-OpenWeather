@@ -12,6 +12,10 @@ import { UpdateLocationComponent } from './update-location/update-location.compo
 import { DeleteLocationComponent } from './delete-location/delete-location.component';
 import { LocationChartsComponent } from './location-charts/location-charts.component';
 import {GoogleChartsModule} from "angular-google-charts";
+import { LoginUserComponent } from './login-user/login-user.component';
+import {CookieService} from "ngx-cookie-service";
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import {GoogleChartsModule} from "angular-google-charts";
     InsertLocationComponent,
     UpdateLocationComponent,
     DeleteLocationComponent,
-    LocationChartsComponent
+    LocationChartsComponent,
+    LoginUserComponent,
+    UpdateUserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,7 @@ import {GoogleChartsModule} from "angular-google-charts";
     ReactiveFormsModule,
     GoogleChartsModule
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
