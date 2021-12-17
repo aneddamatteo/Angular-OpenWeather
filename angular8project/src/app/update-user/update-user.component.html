@@ -1,1 +1,55 @@
-<p>update-user works!</p>
+<div class="card">
+  <h3>Ciao {{username}} qua puoi modificare i tuoi dati...</h3>
+  <form [formGroup]="chooseUpdateForm" novalidate>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="choose" id="user" value=0 formControlName="choose">
+      <label class="form-check-label" for="user">
+        Username
+      </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="choose" id="psw" value=1 formControlName="choose">
+      <label class="form-check-label" for="psw">
+        Password
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="choose" id="both" value=2 formControlName="choose">
+      <label class="form-check-label" for="both">
+        Entrambi
+      </label>
+    </div>
+    <div class="form-group">
+      <button (click)=chooseUpdate() type="submit" class="btn btn-primary">Scegli modifica</button>
+    </div>
+  </form>
+  <div *ngIf="choosedUpdate" class="card-body">
+      <form [formGroup]="updateUserForm" novalidate>
+        <div *ngIf="updatedUsername" class="form-group">
+          <label class="col-md-4">Nuovo Username:</label>
+          <input type="text" class="form-control" formControlName="username">
+        </div>
+        <div *ngIf="updatePsw">
+          <div class="form-group">
+            <label class="col-md-4">Nuova password:</label>
+            <input type="password" class="form-control" formControlName="password">
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Conferma nuova password:</label>
+            <input type="password" class="form-control" formControlName="conf_password">
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)=updateUser() type="submit" class="btn btn-primary">Aggiorna dati</button>
+        </div>
+      </form>
+    </div>
+  <div *ngIf="updated" class="card-body">
+    <div class="card-body">
+      {{ message }}
+    </div>
+    <div class="card-body">
+      <button (click)=refreshData() type="submit" class="btn btn-primary">Clicca per aggiornare la pagina</button>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,7 @@ import { LoginUserComponent } from './login-user/login-user.component';
 import {CookieService} from "ngx-cookie-service";
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { RegistraUserComponent } from './registra-user/registra-user.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
     LocationChartsComponent,
     LoginUserComponent,
     UpdateUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    RegistraUserComponent
   ],
   imports: [
     BrowserModule,

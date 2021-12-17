@@ -1,0 +1,12 @@
+<form [formGroup]="registraForm" novalidate>
+  <h1 class="h3 mb-3 font-weight-normal">Registra nuovo account</h1>
+  <label for="username" class="sr-only">Username nuovo utente</label>
+  <input type="text" id="username" class="form-control" placeholder="Username" required="" autofocus="" formControlName="username">
+  <label for="psw" class="sr-only">Password nuovo utente</label>
+  <input type="password" id="psw" class="form-control" placeholder="Password" required="" formControlName="password">
+
+  <button (click)= registra() class="btn btn-lg btn-primary btn-block" type="submit">Registra Account</button>
+  <div *ngIf="messageRegistrato" class="card-body">
+    <p class="mt-5 mb-3 text-muted">{{message}}</p>
+  </div>
+</form>

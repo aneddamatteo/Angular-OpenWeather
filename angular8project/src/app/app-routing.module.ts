@@ -7,35 +7,60 @@ import {UpdateLocationComponent} from "./update-location/update-location.compone
 import {DeleteLocationComponent} from "./delete-location/delete-location.component";
 import {LocationChartsComponent} from "./location-charts/location-charts.component";
 import {LoginUserComponent} from "./login-user/login-user.component";
+import {DeleteUserComponent} from "./delete-user/delete-user.component";
+import {UpdateUserComponent} from "./update-user/update-user.component";
+import {RegistraUserComponent} from "./registra-user/registra-user.component";
+import {LoginControllerService} from "./login-controller.service";
 
 const routes: Routes = [
   {
     path: '',
-    component: WeatherFormComponent
+    component: WeatherFormComponent,
+    canActivate : []
   },
   {
     path: 'showDb',
-    component: ShowDatabaseComponent
+    component: ShowDatabaseComponent,
+    canActivate : []
   },
   {
     path: 'insertLocation',
-    component: InsertLocationComponent
+    component: InsertLocationComponent,
+    canActivate : []
   },
   {
     path: 'updateLocation',
-    component: UpdateLocationComponent
+    component: UpdateLocationComponent,
+    canActivate : []
   },
   {
     path: 'deleteLocation',
-    component: DeleteLocationComponent
+    component: DeleteLocationComponent,
+    canActivate : []
   },
   {
     path: 'locationCharts',
-    component: LocationChartsComponent
+    component: LocationChartsComponent,
+    canActivate : []
   },
   {
     path: 'login',
-    component: LoginUserComponent
+    component: LoginUserComponent,
+    canActivate : [LoginControllerService]
+  },
+  {
+    path: 'deleteUser',
+    component: DeleteUserComponent,
+    canActivate : []
+  },
+  {
+    path: 'updateUser',
+    component: UpdateUserComponent,
+    canActivate : []
+  },
+  {
+    path: 'registraUser',
+    component: RegistraUserComponent
   }
 ];
 

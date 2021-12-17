@@ -37,4 +37,18 @@ export class WeatherService {
     const options = {headers: {'Content-Type': 'application/json' }};
     return this.http.post(this.uri + 'login', JSON.stringify(data), options);
   }
+  getUsername(){
+    return this.http.get(this.uri + 'utente', {withCredentials:true});
+  }
+  deleteUser(){
+    return this.http.delete(this.uri +'deleteUser', {withCredentials:true});
+  }
+  updateUser(data: object){
+    const options = {headers: {'Content-Type': 'application/json'},withCredentials: true};
+    return this.http.put(this.uri+ 'updateUser',JSON.stringify(data), options);
+  }
+  registraUser(data: object){
+    const options = {headers: {'Content-Type': 'application/json' }};
+    return this.http.post(this.uri + 'registrazione', JSON.stringify(data), options);
+  }
 }

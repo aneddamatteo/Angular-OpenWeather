@@ -5,14 +5,14 @@ import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-login-user',
-  templateUrl: './login-user.component.html',
-  styleUrls: ['./login-user.component.css']
+  selector: 'app-registra-user',
+  templateUrl: './registra-user.component.html',
+  styleUrls: ['./registra-user.component.css']
 })
-export class LoginUserComponent implements OnInit {
+export class RegistraUserComponent implements OnInit {
 
-  logInForm: FormGroup;
-  @Input() messageLogin;
+  registraForm: FormGroup;
+  @Input() messageRegistrato;
   message;
 
   constructor(private fb: FormBuilder, private weatherService: WeatherService, private cookieService: CookieService, private router:Router) {
@@ -20,29 +20,27 @@ export class LoginUserComponent implements OnInit {
   }
 
   getLogInForm(){
-    this.logInForm = this.fb.group({
+    this.registraForm = this.fb.group({
       username: [''],
       password: ['']
 
     });
   }
-  logIn(){
-    const username = this.logInForm.controls['username'].value;
-    const psw = this.logInForm.controls['password'].value;
+  registra(){
+    const username = this.registraForm.controls['username'].value;
+    const psw = this.registraForm.controls['password'].value;
     const data = {
       username:username,
       password:psw
     }
-
-    this.weatherService.postLogIn(data).subscribe(data =>{
+    this.weatherService.registraUser(data).subscribe(data =>{
       if(data['success']){
-        this.messageLogin = false;
+        this.messageRegistrato = false;
         this.message = data['message'];
-        this.cookieService.set("jwt",data["token"]);
-        this.router.navigate(['']);
+        this.router.navigate(['/login']);
       }
       else{
-        this.messageLogin = true;
+        this.messageRegistrato = true;
         this.message = data['message'];
       }
     });

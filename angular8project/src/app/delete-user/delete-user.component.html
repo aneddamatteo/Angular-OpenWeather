@@ -1,1 +1,15 @@
-<p>delete-user works!</p>
+<div class="card">
+    <h3>Ciao {{username}}, per eliminare l'account clicca il bottone sotto e poi dai conferma.</h3>
+    <div class="form-group">
+      <button (click)=deleteAccount() type="submit" class="btn btn-primary">Elimina account</button>
+    </div>
+
+  <div *ngIf="deleteUser" class="card-body">
+    <div>Sei sicuro di voler eliminare l'account ?</div>
+    <button (click)=deleteUserConfirm() type="button" class="btn btn-danger">Si, Elimina</button>
+    <button (click)=deleteUserAbort() type="button" class="btn btn-dark">No, Annulla</button>
+    <div *ngIf="eliminate" class="card-body">
+      {{message}}
+    </div>
+  </div>
+</div>
